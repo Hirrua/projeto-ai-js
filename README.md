@@ -1,4 +1,4 @@
-# Visualiza.AI
+# Analisa.AI
 
 > Trabalho da disciplina de inteligência articial da Faculdade Antonio Meneghetti.
 

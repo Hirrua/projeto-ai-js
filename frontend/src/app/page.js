@@ -16,7 +16,7 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedFile || !jobDescription) {
-      setError('Por favor, selecione um currículo e insira a descrição da vaga');
+      setError('Selecione um currículo e insira a descrição da vaga');
       return;
     }
 
@@ -36,15 +36,19 @@ export default function Home() {
 
       setAnalysis(response.data);
     } catch (err) {
-      setError('Erro na análise: ' + (err.response?.data?.error || err.message));
+      setError('Erro ao analisar: ' + (err.response?.data?.error || err.message));
     } finally {
       setLoading(false);
     }
   };
 
   return (
+    <>
+    <header className="header">
+        <h1 className="header-titulo">Analisa.Ai</h1>
+    </header>
+
     <div className="container">
-      <h1>Analisador de Currículo</h1>
       
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -52,7 +56,7 @@ export default function Home() {
           <textarea
             value={jobDescription}
             onChange={(e) => setJobDescription(e.target.value)}
-            placeholder="Cole a descrição da vaga aqui..."
+            placeholder="Descrição da vaga"
             rows="6"
           />
         </div>
@@ -76,10 +80,10 @@ export default function Home() {
       {analysis && (
         <div className="results">
           <h2>Resultado da Análise</h2>
-          
+        
           <div className="section">
-            <h3>Adequação: {analysis.percentual_adequacao}%</h3>
-            <p>{analysis.explicacao_adequacao}</p>
+            <h3 className="adequacao-percentual">{analysis.percentual_adequacao}%</h3>
+            <p className="explicacao-adequacao">{analysis.explicacao_adequacao}</p>
           </div>
 
           <div className="grid">
@@ -113,5 +117,7 @@ export default function Home() {
         </div>
       )}
     </div>
+    </>
+  
   );
 }
