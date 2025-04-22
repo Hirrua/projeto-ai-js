@@ -62,10 +62,10 @@ export default function Home() {
         </div>
 
         <div className="form-group">
-          <label>Selecione o Currículo (PDF):</label>
+          <label>Selecione o arquivo:</label>
           <input
             type="file"
-            accept=".pdf"
+            accept=".pdf,.jpg,.jpeg,.png"
             onChange={handleFileChange}
           />
         </div>
@@ -109,6 +109,15 @@ export default function Home() {
               <h4>Alertas</h4>
               <ul>
                 {analysis.alertas.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="card">
+              <h4>Melhorias</h4>
+              <ul>
+                {analysis.melhorias_curriculo.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
