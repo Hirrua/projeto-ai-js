@@ -14,6 +14,10 @@ Após a instalação, entre no diretório backend/ e em outro terminal frontend/
 
 Para rodar o back-end, crie um arquivo **.ENV** onde conste `GEMINI_API_KEY` com sua respectiva chave
 
+## Update
+
+A imagem do curriculo antes era realizada utilizando OCR do Tesseract, agora é possível analisar a imagem utilizando o próprio Gemini.
+
 ## Back-end
 
 Back-end foi desenvolvido uma API simples em NodeJs/Express, onde possui um **prompt** para a LLM ter um contexto de como deve se portar ao responder.
